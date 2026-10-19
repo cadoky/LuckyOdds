@@ -1,0 +1,27 @@
+name: Release
+on:
+  push:
+    branches: [main]
+    paths: ['*.toc']
+permissions:
+  contents: write
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Release if version is new
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          TOC=$(ls *.toc | head -n1)
+          NAME="${TOC%.toc}"
+          VER=$(grep -m1 '^## Version:' "$TOC" | sed 's/^## Version:[[:space:]]*//' | tr -d '\r')
+          [ -n "$VER" ] || { echo "No version in $TOC"; exit 1; }
+          TAG="v$VER"
+          if gh release view "$TAG" >/dev/null 2>&1; then echo "$TAG already released"; exit 0; fi
+          mkdir -p "/tmp/pkg/$NAME"
+          rsync -a --exclude '.git' --exclude '.github' --exclude '.gitignore' --exclude 'RELEASE_NOTES.md' ./ "/tmp/pkg/$NAME/"
+          (cd /tmp/pkg && zip -qr "$GITHUB_WORKSPACE/$NAME-$TAG.zip" "$NAME")
+          NOTES=RELEASE_NOTES.md; [ -f "$NOTES" ] || NOTES=/dev/null
+          gh release create "$TAG" "$NAME-$TAG.zip" --title "$NAME $TAG" --notes-file "$NOTES" --target "$GITHUB_SHA"
