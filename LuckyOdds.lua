@@ -373,6 +373,72 @@ pinDriver:SetScript("OnUpdate", function()
   UpdatePins()
 end)
 
+-- ---------------------------------------------------------------- minimap button
+-- click shows or hides the panel; drag moves the button around the minimap's rim
+local function TogglePanel()
+  db.shown = not db.shown
+  local msg = db.shown and "panel shown." or "panel hidden."
+  if db.shown and not Luck() then msg = "panel on; it shows once the game sends your luck (in a run)." end
+  DEFAULT_CHAT_FRAME:AddMessage("|cffa335eeLuckyOdds|r: " .. msg)
+  Refresh()
+end
+
+local btn = CreateFrame("Button", "LuckyOddsMinimapButton", Minimap)
+btn:SetWidth(31)
+btn:SetHeight(31)
+btn:SetFrameStrata("MEDIUM")
+btn:SetFrameLevel(Minimap:GetFrameLevel() + 8)
+btn:SetHighlightTexture("Interface\\Minimap\\UI-Minimap-ZoomButton-Highlight")
+local btnIcon = btn:CreateTexture(nil, "BACKGROUND")
+btnIcon:SetWidth(20)
+btnIcon:SetHeight(20)
+btnIcon:SetTexture("Interface\\Icons\\INV_Jewelry_Necklace_26")
+btnIcon:SetTexCoord(0.07, 0.93, 0.07, 0.93)
+btnIcon:SetPoint("TOPLEFT", btn, "TOPLEFT", 7, -5)
+local btnRing = btn:CreateTexture(nil, "OVERLAY")
+btnRing:SetWidth(53)
+btnRing:SetHeight(53)
+btnRing:SetTexture("Interface\\Minimap\\MiniMap-TrackingBorder")
+btnRing:SetPoint("TOPLEFT", btn, "TOPLEFT", 0, 0)
+
+-- angle in degrees, 0 = east, counter-clockwise; on a square minimap it sits on the square's edge
+local function PlaceButton()
+  local a = math.rad(db.btnAngle or 255)
+  local x, y = math.cos(a), math.sin(a)
+  if SquareMinimap() then
+    local m = math.max(math.abs(x), math.abs(y))
+    x, y = x / m, y / m
+  end
+  local r = (Minimap:GetWidth() or 140) / 2 + 8
+  btn:ClearAllPoints()
+  btn:SetPoint("CENTER", Minimap, "CENTER", x * r, y * r)
+end
+
+btn:RegisterForClicks("LeftButtonUp")
+btn:RegisterForDrag("LeftButton")
+btn:SetScript("OnClick", function() if db then TogglePanel() end end)
+btn:SetScript("OnDragStart", function()
+  this:SetScript("OnUpdate", function()
+    local mx, my = Minimap:GetCenter()
+    local s = Minimap:GetEffectiveScale()
+    local cx, cy = GetCursorPosition()
+    db.btnAngle = math.deg(math.atan2(cy / s - my, cx / s - mx))
+    PlaceButton()
+  end)
+end)
+btn:SetScript("OnDragStop", function() this:SetScript("OnUpdate", nil) end)
+btn:SetScript("OnEnter", function()
+  GameTooltip:SetOwner(this, "ANCHOR_LEFT")
+  GameTooltip:AddLine("LuckyOdds", 0.64, 0.21, 0.93)
+  GameTooltip:AddLine("Click: show or hide the panel", 1, 1, 1)
+  GameTooltip:AddLine("Drag: move this button", 1, 1, 1)
+  GameTooltip:Show()
+end)
+btn:SetScript("OnLeave", function() GameTooltip:Hide() end)
+-- registered after the driver, so db is set by the time this runs
+btn:RegisterEvent("VARIABLES_LOADED")
+btn:SetScript("OnEvent", PlaceButton)
+
 -- ---------------------------------------------------------------- /lucky
 SLASH_LUCKYODDS1 = "/lucky"
 SlashCmdList["LUCKYODDS"] = function(msg)
@@ -390,8 +456,6 @@ SlashCmdList["LUCKYODDS"] = function(msg)
     UpdatePins()
     return
   end
-  db.shown = not db.shown
-  DEFAULT_CHAT_FRAME:AddMessage(say .. "panel " .. (db.shown and "shown." or "hidden. /lucky shows it again.")
-    .. " /lucky chests or /lucky lairs turn the minimap markers on or off.")
-  Refresh()
+  TogglePanel()
+  DEFAULT_CHAT_FRAME:AddMessage(say .. "/lucky chests or /lucky lairs turn the minimap markers on or off.")
 end
