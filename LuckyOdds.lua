@@ -439,21 +439,58 @@ btn:SetScript("OnLeave", function() GameTooltip:Hide() end)
 btn:RegisterEvent("VARIABLES_LOADED")
 btn:SetScript("OnEvent", PlaceButton)
 
+-- ---------------------------------------------------------------- panel toggles
+-- two small buttons in the panel's top right corner: chest and lair markers on or off
+local say = "|cffa335eeLuckyOdds|r: "
+local toggles = {}
+
+local function ToggleMarkers(key, what)
+  db[key] = not db[key]
+  DEFAULT_CHAT_FRAME:AddMessage(say .. what .. " on the minimap " .. (db[key] and "on." or "off."))
+  UpdatePins()
+  for i = 1, table.getn(toggles) do toggles[i].Style() end
+end
+
+local function NewToggle(key, what, iconPath, fromRight)
+  local b = CreateFrame("Button", nil, f)
+  b:SetWidth(20)
+  b:SetHeight(20)
+  b:SetPoint("TOPRIGHT", f, "TOPRIGHT", fromRight, -8)
+  b:SetHighlightTexture("Interface\\Buttons\\ButtonHilight-Square")
+  local t = b:CreateTexture(nil, "ARTWORK")
+  t:SetAllPoints(b)
+  t:SetTexture(iconPath)
+  t:SetTexCoord(0.07, 0.93, 0.07, 0.93)
+  b.Style = function()
+    if not db then return end
+    if db[key] then t:SetVertexColor(1, 1, 1) else t:SetVertexColor(0.35, 0.35, 0.35) end
+  end
+  b:SetScript("OnClick", function() if db then ToggleMarkers(key, what) end end)
+  b:SetScript("OnEnter", function()
+    GameTooltip:SetOwner(this, "ANCHOR_LEFT")
+    GameTooltip:AddLine(what .. " on the minimap", 1, 0.82, 0)
+    GameTooltip:AddLine(db and db[key] and "On. Click to hide." or "Off. Click to show.", 1, 1, 1)
+    GameTooltip:Show()
+  end)
+  b:SetScript("OnLeave", function() GameTooltip:Hide() end)
+  -- registered after the driver, so db is set by the time this runs
+  b:RegisterEvent("VARIABLES_LOADED")
+  b:SetScript("OnEvent", b.Style)
+  table.insert(toggles, b)
+end
+NewToggle("chests", "chests", "Interface\\Icons\\INV_Box_02", -34)
+NewToggle("lairs", "guardian lairs", LAIR_ICON, -10)
+
 -- ---------------------------------------------------------------- /lucky
 SLASH_LUCKYODDS1 = "/lucky"
 SlashCmdList["LUCKYODDS"] = function(msg)
   if not db then return end
-  local say = "|cffa335eeLuckyOdds|r: "
   if string.lower(msg or "") == "lairs" then
-    db.lairs = not db.lairs
-    DEFAULT_CHAT_FRAME:AddMessage(say .. "guardian lairs on the minimap " .. (db.lairs and "on." or "off."))
-    UpdatePins()
+    ToggleMarkers("lairs", "guardian lairs")
     return
   end
   if string.lower(msg or "") == "chests" then
-    db.chests = not db.chests
-    DEFAULT_CHAT_FRAME:AddMessage(say .. "chests on the minimap " .. (db.chests and "on." or "off."))
-    UpdatePins()
+    ToggleMarkers("chests", "chests")
     return
   end
   TogglePanel()
