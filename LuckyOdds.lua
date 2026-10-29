@@ -68,11 +68,21 @@ local function Tex(layer, path)
 end
 
 -- header: the luck amulet's icon, your luck, the level bonus
-local icon = Tex("ARTWORK", "Interface\\Icons\\INV_Jewelry_Necklace_26")
-icon:SetWidth(22)
-icon:SetHeight(22)
+-- Icons sit in small frames of their own: the game keeps a frame over the level-up cards, and
+-- textures drawn straight on the panel stayed dark under the cards' veil.
+local function IconFrame(size)
+  local fr = CreateFrame("Frame", nil, f)
+  fr:SetWidth(size)
+  fr:SetHeight(size)
+  fr.tex = fr:CreateTexture(nil, "ARTWORK")
+  fr.tex:SetAllPoints(fr)
+  fr.tex:SetTexCoord(0.07, 0.93, 0.07, 0.93)
+  return fr
+end
+
+local icon = IconFrame(22)
+icon.tex:SetTexture("Interface\\Icons\\INV_Jewelry_Necklace_26")
 icon:SetPoint("TOPLEFT", f, "TOPLEFT", 10, -9)
-icon:SetTexCoord(0.07, 0.93, 0.07, 0.93)
 f.luck = Text("GameFontNormal")
 f.luck:SetPoint("LEFT", icon, "RIGHT", 8, 5)
 f.level = Text("GameFontDisableSmall")
@@ -103,11 +113,9 @@ for n = 1, table.getn(ROWS) do
     band:SetPoint("TOPLEFT", f, "TOPLEFT", 6, y)
     band:SetPoint("TOPRIGHT", f, "TOPRIGHT", -6, y)
   end
-  local ic = Tex("ARTWORK", "Interface\\Icons\\" .. ROWS[n].icon)
-  ic:SetWidth(15)
-  ic:SetHeight(15)
+  local ic = IconFrame(15)
+  ic.tex:SetTexture("Interface\\Icons\\" .. ROWS[n].icon)
   ic:SetPoint("LEFT", f, "TOPLEFT", 12, y - ROW_H / 2)
-  ic:SetTexCoord(0.07, 0.93, 0.07, 0.93)
   local name = Text("GameFontHighlightSmall")
   name:SetPoint("LEFT", ic, "RIGHT", 6, 0)
   name:SetText(ROWS[n].label)
@@ -150,12 +158,19 @@ driver:SetScript("OnUpdate", function()
   Refresh()
 end)
 
+-- game 0.126.0+: keep the panel over the level-up and new-item cards; /lucky top turns it off
+local function ApplyTop()
+  if AZS_SetOnTopOfScreens then AZS_SetOnTopOfScreens(f, db.top and true or false) end
+end
+
 driver:RegisterEvent("VARIABLES_LOADED")
 driver:SetScript("OnEvent", function()
   if type(LuckyOddsDB) ~= "table" then LuckyOddsDB = { shown = true } end
   db = LuckyOddsDB
   if db.chests == nil then db.chests = true end
   if db.lairs == nil then db.lairs = true end
+  if db.top == nil then db.top = true end
+  ApplyTop()
   f:ClearAllPoints()
   if db.point then
     f:SetPoint(db.point[1], UIParent, db.point[2], db.point[3], db.point[4])
@@ -493,6 +508,12 @@ SlashCmdList["LUCKYODDS"] = function(msg)
     ToggleMarkers("chests", "chests")
     return
   end
+  if string.lower(msg or "") == "top" then
+    db.top = not db.top
+    ApplyTop()
+    DEFAULT_CHAT_FRAME:AddMessage(say .. "panel over the level-up cards " .. (db.top and "on." or "off (it stays under them)."))
+    return
+  end
   TogglePanel()
-  DEFAULT_CHAT_FRAME:AddMessage(say .. "/lucky chests or /lucky lairs turn the minimap markers on or off.")
+  DEFAULT_CHAT_FRAME:AddMessage(say .. "/lucky chests or /lucky lairs turn the minimap markers on or off, /lucky top keeps the panel over the level-up cards or not.")
 end

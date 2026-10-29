@@ -29,6 +29,7 @@ If you use Chestlight, turn it off, or you'll see the chests twice.
 - `/lucky`: show or hide the odds panel
 - `/lucky chests`: turn the cache icons on the minimap on or off
 - `/lucky lairs`: turn the guardian lairs on the minimap on or off
+- `/lucky top`: keep the panel above the level-up and item cards or let it stay under them (needs game 0.126.0 or newer, on by default)
 
 ## Author
 
