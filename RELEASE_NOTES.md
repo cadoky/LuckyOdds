@@ -1,5 +1,7 @@
-- Two small buttons in the top right corner of the odds panel: one turns the Battleground Cache markers on the minimap on or off, the other does the same for the guardian lairs.
-- The icon goes dark when a marker type is off, and the choice is remembered.
-- `/lucky chests` and `/lucky lairs` still work and stay in sync with the buttons.
+Needs game 0.126.0 or newer.
+
+- The odds panel now stays above the level-up and new-item cards, so you can see your odds while you pick.
+- `/lucky top` turns that off if you'd rather keep the panel under the cards.
+- The panel icons are drawn in frames of their own so they stay bright over the cards.
 
 Install: drop the `LuckyOdds` folder into your `AddOns` folder.
