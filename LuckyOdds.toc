@@ -2,6 +2,6 @@
 ## Title: |cffa335eeLucky|rOdds
 ## Notes: Azeroth Survivors: a small panel with your odds for Rare, Epic and Legendary cards and amulets at your current luck, the Battleground Caches and the guardian lairs on your minimap.
 ## Author: Ulaş Çolaker
-## Version: 0.7.0
+## Version: 0.8.0
 ## SavedVariables: LuckyOddsDB
 LuckyOdds.lua
