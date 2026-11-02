@@ -1,9 +1,8 @@
 Needs game 0.126.0 or newer.
 
-- New panel layout. Luck is big at the top, Spells/Rings/Trinkets and Amulets sit side by side with Rare, Epic and Legendary in the middle.
-- A new button flips the panel between portrait and landscape. The landscape one is a wide, short strip.
-- New settings button (the cog) opens a small window with the language and "Show on selection" (same as `/lucky top`).
-- The panel now speaks the same languages as ASBuilder: English, Chinese, Spanish, French, Portuguese, Russian, German, Japanese, Turkish and Korean.
-- New icons for the chest and guardian lair buttons and for the layout button.
+- The old panel design is back. Lots of you liked the table with a row per card type, so it's now an option next to the new one.
+- Open the cog and hit "Design" to flip between New and Old. It remembers your pick.
+- The old design has the same cog, language list, "Show on selection" and the new chest and guardian buttons as the new one.
+- Both designs share the same spot on your screen, drag one and the other follows.
 
-Install: drop the `LuckyOdds` folder into your `AddOns` folder. The new icons need a full game restart, `/reload` is not enough.
+Install: drop the `LuckyOdds` folder into your `AddOns` folder and `/reload`.

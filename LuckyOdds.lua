@@ -20,25 +20,25 @@ local LANGS = { { "en", "English" }, { "zh", "Chinese" }, { "es", "Español" }, 
   { "ru", "Russian" }, { "de", "Deutsch" }, { "ja", "Japanese" }, { "tr", "Türkçe" }, { "ko", "Korean" } }
 local L = {
   en = { luck = "Luck", level = "from your level", spells = "Spells", rings = "Rings", trinkets = "Trinkets", amulets = "Amulets",
-    rare = "RARE", epic = "EPIC", legend = "LEGEND", settings = "Settings", sel = "Show on selection", on = "On", off = "Off", lang = "Language" },
+    rare = "RARE", epic = "EPIC", legend = "LEGEND", settings = "Settings", sel = "Show on selection", on = "On", off = "Off", lang = "Language", design = "Design", new = "New", old = "Old" },
   zh = { luck = "幸运", level = "来自等级", spells = "法术", rings = "戒指", trinkets = "饰品", amulets = "项链",
-    rare = "稀有", epic = "史诗", legend = "传说", settings = "设置", sel = "选牌时显示", on = "开", off = "关", lang = "语言" },
+    rare = "稀有", epic = "史诗", legend = "传说", settings = "设置", sel = "选牌时显示", on = "开", off = "关", lang = "语言", design = "样式", new = "新", old = "旧" },
   es = { luck = "Suerte", level = "de tu nivel", spells = "Hechizos", rings = "Anillos", trinkets = "Abalorios", amulets = "Amuletos",
-    rare = "RARO", epic = "ÉPICO", legend = "LEGENDARIO", settings = "Ajustes", sel = "Mostrar al elegir", on = "Sí", off = "No", lang = "Idioma" },
+    rare = "RARO", epic = "ÉPICO", legend = "LEGENDARIO", settings = "Ajustes", sel = "Mostrar al elegir", on = "Sí", off = "No", lang = "Idioma", design = "Diseño", new = "Nuevo", old = "Antiguo" },
   fr = { luck = "Chance", level = "de ton niveau", spells = "Sorts", rings = "Anneaux", trinkets = "Bijoux", amulets = "Amulettes",
-    rare = "RARE", epic = "ÉPIQUE", legend = "LÉGENDAIRE", settings = "Réglages", sel = "Afficher au choix", on = "Oui", off = "Non", lang = "Langue" },
+    rare = "RARE", epic = "ÉPIQUE", legend = "LÉGENDAIRE", settings = "Réglages", sel = "Afficher au choix", on = "Oui", off = "Non", lang = "Langue", design = "Style", new = "Nouveau", old = "Ancien" },
   pt = { luck = "Sorte", level = "do seu nível", spells = "Feitiços", rings = "Anéis", trinkets = "Berloques", amulets = "Amuletos",
-    rare = "RARO", epic = "ÉPICO", legend = "LENDÁRIO", settings = "Opções", sel = "Mostrar ao escolher", on = "Sim", off = "Não", lang = "Idioma" },
+    rare = "RARO", epic = "ÉPICO", legend = "LENDÁRIO", settings = "Opções", sel = "Mostrar ao escolher", on = "Sim", off = "Não", lang = "Idioma", design = "Visual", new = "Novo", old = "Antigo" },
   ru = { luck = "Удача", level = "от вашего уровня", spells = "Заклинания", rings = "Кольца", trinkets = "Аксессуары", amulets = "Амулеты",
-    rare = "РЕДКАЯ", epic = "ЭПИК", legend = "ЛЕГЕНДА", settings = "Настройки", sel = "Показ при выборе", on = "Да", off = "Нет", lang = "Язык" },
+    rare = "РЕДКАЯ", epic = "ЭПИК", legend = "ЛЕГЕНДА", settings = "Настройки", sel = "Показ при выборе", on = "Да", off = "Нет", lang = "Язык", design = "Вид", new = "Новый", old = "Старый" },
   de = { luck = "Glück", level = "durch deine Stufe", spells = "Zauber", rings = "Ringe", trinkets = "Schmuck", amulets = "Amulette",
-    rare = "SELTEN", epic = "EPISCH", legend = "LEGENDÄR", settings = "Optionen", sel = "Bei Auswahl zeigen", on = "An", off = "Aus", lang = "Sprache" },
+    rare = "SELTEN", epic = "EPISCH", legend = "LEGENDÄR", settings = "Optionen", sel = "Bei Auswahl zeigen", on = "An", off = "Aus", lang = "Sprache", design = "Design", new = "Neu", old = "Alt" },
   ja = { luck = "幸運", level = "レベル分", spells = "呪文", rings = "指輪", trinkets = "装飾品", amulets = "首飾り",
-    rare = "レア", epic = "エピック", legend = "レジェンド", settings = "設定", sel = "選択時に表示", on = "オン", off = "オフ", lang = "言語" },
+    rare = "レア", epic = "エピック", legend = "レジェンド", settings = "設定", sel = "選択時に表示", on = "オン", off = "オフ", lang = "言語", design = "デザイン", new = "新", old = "旧" },
   tr = { luck = "Şans", level = "seviyenden", spells = "Büyüler", rings = "Yüzükler", trinkets = "Takılar", amulets = "Tılsımlar",
-    rare = "NADİR", epic = "DESTANSI", legend = "EFSANEVİ", settings = "Ayarlar", sel = "Seçimde göster", on = "Açık", off = "Kapalı", lang = "Dil" },
+    rare = "NADİR", epic = "DESTANSI", legend = "EFSANEVİ", settings = "Ayarlar", sel = "Seçimde göster", on = "Açık", off = "Kapalı", lang = "Dil", design = "Tasarım", new = "Yeni", old = "Eski" },
   ko = { luck = "행운", level = "레벨 보너스", spells = "주문", rings = "반지", trinkets = "장신구", amulets = "목걸이",
-    rare = "희귀", epic = "영웅", legend = "전설", settings = "설정", sel = "선택 시 표시", on = "켜짐", off = "꺼짐", lang = "언어" },
+    rare = "희귀", epic = "영웅", legend = "전설", settings = "설정", sel = "선택 시 표시", on = "켜짐", off = "꺼짐", lang = "언어", design = "디자인", new = "새로운", old = "기존" },
 }
 
 local db
@@ -66,41 +66,48 @@ local function LevelBonus()
 end
 
 
-local f = CreateFrame("Frame", "LuckyOddsFrame", UIParent)
+local ui = {}   -- every piece of the new panel; Layout() puts them in portrait or landscape
+
+local function Panel(name)
+  local p = CreateFrame("Frame", name, UIParent)
+  p:SetBackdrop({ bgFile = "Interface\\Tooltips\\UI-Tooltip-Background", edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border",
+    tile = true, tileSize = 16, edgeSize = 16, insets = { left = 4, right = 4, top = 4, bottom = 4 } })
+  p:SetBackdropColor(0.04, 0.04, 0.06, 0.92)
+  p:SetBackdropBorderColor(0.62, 0.52, 0.32, 1)
+  p:SetMovable(true)
+  p:EnableMouse(true)
+  p:RegisterForDrag("LeftButton")
+  p:SetScript("OnDragStart", function() this:StartMoving() end)
+  p:SetScript("OnDragStop", function()
+    this:StopMovingOrSizing()
+    local pt, _, rp, x, y = this:GetPoint()
+    db.point = { pt, rp, x, y }
+    ui.Place()
+  end)
+  return p
+end
+local f = Panel("LuckyOddsFrame")      -- the new design
+local o = Panel("LuckyOddsOldFrame")   -- the old design, db.style = "old"
 f:SetWidth(252)
 f:SetHeight(246)
-f:SetBackdrop({ bgFile = "Interface\\Tooltips\\UI-Tooltip-Background", edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border",
-  tile = true, tileSize = 16, edgeSize = 16, insets = { left = 4, right = 4, top = 4, bottom = 4 } })
-f:SetBackdropColor(0.04, 0.04, 0.06, 0.92)
-f:SetBackdropBorderColor(0.62, 0.52, 0.32, 1)
-f:SetMovable(true)
-f:EnableMouse(true)
-f:RegisterForDrag("LeftButton")
-f:SetScript("OnDragStart", function() this:StartMoving() end)
-f:SetScript("OnDragStop", function()
-  this:StopMovingOrSizing()
-  local p, _, rp, x, y = this:GetPoint()
-  db.point = { p, rp, x, y }
-end)
 
-local ui = {}   -- every piece of the panel; Layout() puts them in portrait or landscape
-
-local function Text(font, justify)
-  local t = f:CreateFontString(nil, "OVERLAY", font)
+-- parent p defaults to the new panel
+local function Text(font, justify, p)
+  local t = (p or f):CreateFontString(nil, "OVERLAY", font)
   t:SetJustifyH(justify or "LEFT")
   return t
 end
 
-local function Tex(layer, path)
-  local t = f:CreateTexture(nil, layer)
+local function Tex(layer, path, p)
+  local t = (p or f):CreateTexture(nil, layer)
   t:SetTexture(path)
   return t
 end
 
 -- Icons sit in small frames of their own: the game keeps a frame over the level-up cards, and
 -- textures drawn straight on the panel stayed dark under the cards' veil.
-local function IconFrame(size)
-  local fr = CreateFrame("Frame", nil, f)
+local function IconFrame(size, p)
+  local fr = CreateFrame("Frame", nil, p or f)
   fr:SetWidth(size)
   fr:SetHeight(size)
   fr.tex = fr:CreateTexture(nil, "ARTWORK")
@@ -139,31 +146,12 @@ for i = 1, 3 do
   ui.cell[2][i] = Text("GameFontHighlightSmall", "CENTER")
 end
 
--- settings: a label, three icon buttons (layout and the two minimap markers come later), the
--- show-on-selection switch and the language button with its list
-ui.pop = CreateFrame("Frame", nil, f)   -- the settings window, tooltip sized
-ui.pop:SetWidth(150)
-ui.pop:SetHeight(58)
-ui.pop:SetFrameLevel(f:GetFrameLevel() + 10)
-ui.pop:SetBackdrop({ bgFile = "Interface\\Tooltips\\UI-Tooltip-Background", edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border",
-  tile = true, tileSize = 16, edgeSize = 16, insets = { left = 4, right = 4, top = 4, bottom = 4 } })
-ui.pop:SetBackdropColor(0.04, 0.04, 0.06, 1)
-ui.pop:SetBackdropBorderColor(0.62, 0.52, 0.32, 1)
-ui.pop:EnableMouse(true)
-ui.pop:Hide()
+-- settings: each design has its own gear and window (design switch, show-on-selection switch,
+-- language button with its list). A window is a child of its own panel, so frame levels stay simple.
+local ApplyTop   -- defined further down
 
-local function TextButton(width)
-  local b = CreateFrame("Button", nil, ui.pop)
-  b:SetWidth(width)
-  b:SetHeight(16)
-  b:SetHighlightTexture("Interface\\Buttons\\ButtonHilight-Square")
-  b.text = b:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
-  b.text:SetAllPoints(b)
-  return b
-end
-
-local function IconButton(iconPath)
-  local b = CreateFrame("Button", nil, f)
+local function IconButton(iconPath, parent)
+  local b = CreateFrame("Button", nil, parent or f)
   b:SetWidth(20)
   b:SetHeight(20)
   b:SetHighlightTexture("Interface\\Buttons\\ButtonHilight-Square")
@@ -174,22 +162,106 @@ local function IconButton(iconPath)
   return b
 end
 
-ui.sel = TextButton(138)
-ui.sel:SetPoint("TOP", ui.pop, "TOP", 0, -9)
-ui.lang = TextButton(138)
-ui.lang:SetPoint("TOP", ui.pop, "TOP", 0, -31)
+local function Settings(parent)
+  local s = {}
+  local pop = CreateFrame("Frame", nil, parent)   -- the settings window, tooltip sized
+  pop:SetWidth(150)
+  pop:SetHeight(80)
+  pop:SetFrameLevel(parent:GetFrameLevel() + 10)
+  pop:SetBackdrop({ bgFile = "Interface\\Tooltips\\UI-Tooltip-Background", edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border",
+    tile = true, tileSize = 16, edgeSize = 16, insets = { left = 4, right = 4, top = 4, bottom = 4 } })
+  pop:SetBackdropColor(0.04, 0.04, 0.06, 1)
+  pop:SetBackdropBorderColor(0.62, 0.52, 0.32, 1)
+  pop:EnableMouse(true)
+  pop:Hide()
 
-ui.gear = IconButton("Interface\\Icons\\INV_Misc_Gear_01")
-ui.gear:SetScript("OnClick", function()
-  if ui.pop:IsVisible() then ui.pop:Hide() else ui.pop:Show() end
-end)
-ui.gear:SetScript("OnEnter", function()
-  GameTooltip:SetOwner(this, "ANCHOR_LEFT")
-  GameTooltip:AddLine("Settings", 1, 0.82, 0)
-  GameTooltip:Show()
-end)
-ui.gear:SetScript("OnLeave", function() GameTooltip:Hide() end)
-ui.pop:SetScript("OnHide", function() ui.menu:Hide() end)
+  local function TextButton(y)
+    local b = CreateFrame("Button", nil, pop)
+    b:SetWidth(138)
+    b:SetHeight(16)
+    b:SetPoint("TOP", pop, "TOP", 0, y)
+    b:SetHighlightTexture("Interface\\Buttons\\ButtonHilight-Square")
+    b.text = b:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
+    b.text:SetAllPoints(b)
+    return b
+  end
+  s.design = TextButton(-9)
+  s.sel = TextButton(-31)
+  s.lang = TextButton(-53)
+
+  s.gear = IconButton("Interface\\Icons\\INV_Misc_Gear_01", parent)
+  pop:SetPoint("TOPLEFT", s.gear, "BOTTOMLEFT", 0, -2)
+  s.gear:SetScript("OnClick", function()
+    if pop:IsVisible() then pop:Hide() else pop:Show() end
+  end)
+  s.gear:SetScript("OnEnter", function()
+    GameTooltip:SetOwner(this, "ANCHOR_LEFT")
+    GameTooltip:AddLine(Tr("settings"), 1, 0.82, 0)
+    GameTooltip:Show()
+  end)
+  s.gear:SetScript("OnLeave", function() GameTooltip:Hide() end)
+
+  local menu = CreateFrame("Frame", nil, parent)
+  menu:SetWidth(108)
+  menu:SetHeight(table.getn(LANGS) * 16 + 10)
+  menu:SetFrameLevel(parent:GetFrameLevel() + 12)
+  menu:SetBackdrop({ bgFile = "Interface\\Tooltips\\UI-Tooltip-Background", edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border",
+    tile = true, tileSize = 16, edgeSize = 16, insets = { left = 4, right = 4, top = 4, bottom = 4 } })
+  menu:SetBackdropColor(0.04, 0.04, 0.06, 1)
+  menu:SetBackdropBorderColor(0.62, 0.52, 0.32, 1)
+  menu:EnableMouse(true)
+  menu:Hide()
+  menu:SetPoint("TOPLEFT", s.lang, "BOTTOMLEFT", 0, -2)
+  local rows = {}
+  for i = 1, table.getn(LANGS) do
+    local r = CreateFrame("Button", nil, menu)
+    r:SetWidth(98)
+    r:SetHeight(16)
+    r:SetFrameLevel(menu:GetFrameLevel() + 1)
+    r:SetPoint("TOPLEFT", menu, "TOPLEFT", 5, -5 - (i - 1) * 16)
+    r:SetHighlightTexture("Interface\\Buttons\\ButtonHilight-Square")
+    r.key = LANGS[i][1]
+    r.text = r:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
+    r.text:SetPoint("LEFT", r, "LEFT", 6, 0)
+    r.text:SetText(LANGS[i][2])
+    rows[i] = r
+    r:SetScript("OnClick", function()
+      db.lang = this.key
+      menu:Hide()
+      ui.Apply()
+    end)
+  end
+  menu:SetScript("OnShow", function()
+    for i = 1, table.getn(rows) do
+      if rows[i].key == db.lang then rows[i].text:SetTextColor(0.35, 1, 0.35) else rows[i].text:SetTextColor(1, 1, 1) end
+    end
+  end)
+  s.lang:SetScript("OnClick", function()
+    if menu:IsVisible() then menu:Hide() else menu:Show() end
+  end)
+  pop:SetScript("OnHide", function() menu:Hide() end)
+
+  s.sel:SetScript("OnClick", function()
+    if not db then return end
+    db.top = not db.top
+    ApplyTop()
+  end)
+  -- switching the design closes this window and opens the other design's
+  s.design:SetScript("OnClick", function()
+    if not db then return end
+    db.style = (db.style == "old") and "new" or "old"
+    ui.Apply()
+    local t = (db.style == "old") and ui.oset or ui.set
+    t.pop:Show()
+  end)
+  s.Close = function()
+    menu:Hide()
+    pop:Hide()
+  end
+  return s
+end
+ui.set = Settings(f)    -- the new design's
+ui.oset = Settings(o)   -- the old design's
 
 ui.rot = IconButton("Interface\\AddOns\\LuckyOdds\\rotate")
 ui.rot.tex:SetTexCoord(0, 1, 0, 1)
@@ -206,45 +278,63 @@ ui.rot:SetScript("OnEnter", function()
 end)
 ui.rot:SetScript("OnLeave", function() GameTooltip:Hide() end)
 
-ui.menu = CreateFrame("Frame", nil, f)
-ui.menu:SetWidth(108)
-ui.menu:SetHeight(table.getn(LANGS) * 16 + 10)
-ui.menu:SetFrameLevel(f:GetFrameLevel() + 12)
-ui.menu:SetBackdrop({ bgFile = "Interface\\Tooltips\\UI-Tooltip-Background", edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border",
-  tile = true, tileSize = 16, edgeSize = 16, insets = { left = 4, right = 4, top = 4, bottom = 4 } })
-ui.menu:SetBackdropColor(0.04, 0.04, 0.06, 1)
-ui.menu:SetBackdropBorderColor(0.62, 0.52, 0.32, 1)
-ui.menu:EnableMouse(true)
-ui.menu:Hide()
-ui.menuRows = {}
-for i = 1, table.getn(LANGS) do
-  local r = CreateFrame("Button", nil, ui.menu)
-  r:SetWidth(98)
-  r:SetHeight(16)
-  r:SetFrameLevel(ui.menu:GetFrameLevel() + 1)
-  r:SetPoint("TOPLEFT", ui.menu, "TOPLEFT", 5, -5 - (i - 1) * 16)
-  r:SetHighlightTexture("Interface\\Buttons\\ButtonHilight-Square")
-  r.key = LANGS[i][1]
-  r.text = r:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
-  r.text:SetPoint("LEFT", r, "LEFT", 6, 0)
-  r.text:SetText(LANGS[i][2])
-  ui.menuRows[i] = r
-  r:SetScript("OnClick", function()
-    db.lang = this.key
-    ui.menu:Hide()
-    ui.Layout()
-  end)
+-- the old design (v0.7): a table with a row per kind of card. Same settings and the same new
+-- chest and guardian buttons as the new design; db.style = "old" picks it.
+local OLD_ROWS = {
+  { key = "spells", icon = "Spell_Holy_HolyBolt", bonus = 0 },
+  { key = "rings", icon = "INV_Jewelry_Ring_15", bonus = 0 },
+  { key = "trinkets", icon = "INV_Misc_StoneTablet_11", bonus = 0 },
+  { key = "amulets", icon = "INV_Jewelry_Talisman_07", bonus = 0.5 },
+}
+local OROW, OTOP = 20, 46
+local OCOL = { 158, 204, 252 }   -- right edge of each rarity column
+-- texts carry no fixed width: a too-narrow one wraps and slips out of line. Each is pinned by
+-- its right-middle point instead, so columns line up whatever the font measures.
+local od = { name = {}, rows = {} }
+o:SetWidth(266)
+o:SetHeight(OTOP + table.getn(OLD_ROWS) * OROW + 10)
+
+local oicon = IconFrame(22, o)
+oicon.tex:SetTexture("Interface\\Icons\\INV_Jewelry_Necklace_26")
+oicon:SetPoint("TOPLEFT", o, "TOPLEFT", 10, -9)
+od.luck = Text("GameFontNormal", nil, o)
+od.luck:SetPoint("LEFT", oicon, "RIGHT", 8, 5)
+od.level = Text("GameFontDisableSmall", nil, o)
+od.level:SetPoint("LEFT", oicon, "RIGHT", 8, -7)
+for i = 1, 3 do
+  local h = Text("GameFontNormalSmall", "RIGHT", o)
+  h:SetPoint("RIGHT", o, "TOPLEFT", OCOL[i], -OTOP + 8)
+  h:SetTextColor(RARITY[i].r, RARITY[i].g, RARITY[i].b)
+  od.name[i] = h
 end
-ui.menu:SetScript("OnShow", function()
-  for i = 1, table.getn(ui.menuRows) do
-    local r = ui.menuRows[i]
-    if r.key == db.lang then r.text:SetTextColor(0.35, 1, 0.35) else r.text:SetTextColor(1, 1, 1) end
+local orule = Tex("ARTWORK", "Interface\\Buttons\\WHITE8X8", o)
+orule:SetVertexColor(0.62, 0.52, 0.32, 0.5)
+orule:SetHeight(1)
+orule:SetPoint("TOPLEFT", o, "TOPLEFT", 8, -OTOP + 1)
+orule:SetPoint("TOPRIGHT", o, "TOPRIGHT", -8, -OTOP + 1)
+for n = 1, table.getn(OLD_ROWS) do
+  local y = -OTOP - (n - 1) * OROW
+  local row = { cells = {} }
+  if math.mod(n, 2) == 0 then
+    local band = Tex("BACKGROUND", "Interface\\Buttons\\WHITE8X8", o)
+    band:SetVertexColor(1, 1, 1, 0.04)
+    band:SetHeight(OROW)
+    band:SetPoint("TOPLEFT", o, "TOPLEFT", 6, y)
+    band:SetPoint("TOPRIGHT", o, "TOPRIGHT", -6, y)
   end
-end)
-ui.lang:SetScript("OnClick", function()
-  if ui.menu:IsVisible() then ui.menu:Hide() else ui.menu:Show() end
-end)
-ui.menu:SetPoint("TOPLEFT", ui.lang, "BOTTOMLEFT", 0, -2)
+  local ic = IconFrame(15, o)
+  ic.tex:SetTexture("Interface\\Icons\\" .. OLD_ROWS[n].icon)
+  ic:SetPoint("LEFT", o, "TOPLEFT", 12, y - OROW / 2)
+  row.name = Text("GameFontHighlightSmall", nil, o)
+  row.name:SetPoint("LEFT", ic, "RIGHT", 6, 0)
+  for i = 1, 3 do
+    row.cells[i] = Text("GameFontHighlightSmall", "RIGHT", o)
+    row.cells[i]:SetPoint("RIGHT", o, "TOPLEFT", OCOL[i], y - OROW / 2)
+  end
+  od.rows[n] = row
+end
+-- top right: guardian lairs, chests (added with the other toggles below), then the gear
+ui.oset.gear:SetPoint("TOPRIGHT", o, "TOPRIGHT", -58, -8)
 
 -- the static words, in the chosen language
 local function Relabel()
@@ -256,8 +346,14 @@ local function Relabel()
   end
   for i = 1, 3 do ui.name[i]:SetText(Tr(RARITY[i].key)) end
   ui.luckLabel:SetText(Tr("luck"))
-  ui.sel.text:SetText(Tr("sel") .. ": " .. (db.top and Tr("on") or Tr("off")))
-  ui.lang.text:SetText(Tr("lang") .. ": " .. string.upper(db.lang))
+  for i = 1, 3 do od.name[i]:SetText(Tr(RARITY[i].key)) end
+  for n = 1, table.getn(OLD_ROWS) do od.rows[n].name:SetText(Tr(OLD_ROWS[n].key)) end
+  local sets = { ui.set, ui.oset }
+  for i = 1, 2 do
+    sets[i].design.text:SetText(Tr("design") .. ": " .. Tr(db.style))
+    sets[i].sel.text:SetText(Tr("sel") .. ": " .. (db.top and Tr("on") or Tr("off")))
+    sets[i].lang.text:SetText(Tr("lang") .. ": " .. string.upper(db.lang))
+  end
 end
 
 -- puts every piece where the chosen layout wants it. Landscape is the portrait grid turned on
@@ -284,8 +380,7 @@ function ui.Layout()
   end
   f:SetWidth(w)
   f:SetHeight(h)
-  ui.menu:Hide()
-  ui.pop:Hide()
+  ui.set.Close()
 
   for g = 1, 2 do
     At(ui.group[g].text, gx[g], gy[g] + (land and 4 or 0))
@@ -324,7 +419,7 @@ function ui.Layout()
   ui.level:SetWidth(land and 130 or 130)
 
   -- layout, chests, lairs and settings buttons: a row in portrait, two by two in landscape
-  local btns = { ui.rot, ui.toggle[1], ui.toggle[2], ui.gear }
+  local btns = { ui.rot, ui.toggle[1], ui.toggle[2], ui.set.gear }
   local isz = land and 22 or 20
   for i = 1, 4 do
     local x, y = 70 + (i - 2.5) * 28, hdr + 130
@@ -333,27 +428,62 @@ function ui.Layout()
     btns[i]:SetHeight(isz)
     At(btns[i], x, y)
   end
-  ui.pop:ClearAllPoints()
-  ui.pop:SetPoint("TOPLEFT", ui.gear, "BOTTOMLEFT", 0, -2)
   Relabel()
+end
+
+-- a chance's text, a soft tint of the rarity colour, brighter the likelier it is
+local function Cell(c, pct, i)
+  c:SetText(string.format("%.1f%%", pct))
+  local a = 0.55 + math.min(0.45, pct / 40)
+  c:SetTextColor(1 - (1 - RARITY[i].r) * 0.45 * a, 1 - (1 - RARITY[i].g) * 0.45 * a, 1 - (1 - RARITY[i].b) * 0.45 * a)
 end
 
 local function Refresh()
   local luck = Luck()
-  if not db.shown or not luck then f:Hide() return end
-  f:Show()
+  local isOld = db.style == "old"
+  local other = isOld and f or o
+  other:Hide()
+  local fr = isOld and o or f
+  if not db.shown or not luck then fr:Hide() return end
+  fr:Show()
   local lvl = LevelBonus()
-  ui.luck:SetText("|cffffffff" .. math.floor(luck * 100 + 0.5) .. "%|r")
-  ui.level:SetText("+" .. math.floor(lvl * 100 + 0.5) .. "% " .. Tr("level"))
+  local pct = math.floor(luck * 100 + 0.5) .. "%"
+  local lvlText = "+" .. math.floor(lvl * 100 + 0.5) .. "% " .. Tr("level")
   local k = 1 + luck + lvl
+  if isOld then
+    od.luck:SetText(Tr("luck") .. "  |cffffffff" .. pct .. "|r")
+    od.level:SetText(lvlText)
+    for n = 1, table.getn(OLD_ROWS) do
+      local odds = Odds(k + OLD_ROWS[n].bonus)
+      for i = 1, 3 do Cell(od.rows[n].cells[i], odds[i], i) end
+    end
+    return
+  end
+  ui.luck:SetText("|cffffffff" .. pct .. "|r")
+  ui.level:SetText(lvlText)
   for g = 1, 2 do
     local odds = Odds(k + GROUPS[g].bonus)
-    for i = 1, 3 do
-      local c = ui.cell[g][i]
-      c:SetText(string.format("%.1f%%", odds[i]))
-      -- a soft tint of the rarity colour, brighter the likelier it is
-      local a = 0.55 + math.min(0.45, odds[i] / 40)
-      c:SetTextColor(1 - (1 - RARITY[i].r) * 0.45 * a, 1 - (1 - RARITY[i].g) * 0.45 * a, 1 - (1 - RARITY[i].b) * 0.45 * a)
+    for i = 1, 3 do Cell(ui.cell[g][i], odds[i], i) end
+  end
+end
+
+-- puts the chosen design on screen (also after a language change)
+function ui.Apply()
+  if not db then return end
+  ui.oset.Close()
+  ui.Layout()
+  Refresh()
+end
+
+-- both designs share one place on the screen
+function ui.Place()
+  local panels = { f, o }
+  for i = 1, 2 do
+    panels[i]:ClearAllPoints()
+    if db.point then
+      panels[i]:SetPoint(db.point[1], UIParent, db.point[2], db.point[3], db.point[4])
+    else
+      panels[i]:SetPoint("TOPRIGHT", UIParent, "TOPRIGHT", -230, -260)
     end
   end
 end
@@ -369,15 +499,13 @@ driver:SetScript("OnUpdate", function()
 end)
 
 -- game 0.126.0+: keep the panel over the level-up and new-item cards; /lucky top turns it off
-local function ApplyTop()
-  if AZS_SetOnTopOfScreens then AZS_SetOnTopOfScreens(f, db.top and true or false) end
+function ApplyTop()
+  if AZS_SetOnTopOfScreens then
+    AZS_SetOnTopOfScreens(f, db.top and true or false)
+    AZS_SetOnTopOfScreens(o, db.top and true or false)
+  end
   Relabel()
 end
-ui.sel:SetScript("OnClick", function()
-  if not db then return end
-  db.top = not db.top
-  ApplyTop()
-end)
 
 driver:RegisterEvent("VARIABLES_LOADED")
 driver:SetScript("OnEvent", function()
@@ -387,16 +515,13 @@ driver:SetScript("OnEvent", function()
   if db.lairs == nil then db.lairs = true end
   if db.top == nil then db.top = true end
   if not L[db.lang] then db.lang = "en" end
+  if db.style ~= "old" then db.style = "new" end
   ApplyTop()
-  f:ClearAllPoints()
-  if db.point then
-    f:SetPoint(db.point[1], UIParent, db.point[2], db.point[3], db.point[4])
-  else
-    f:SetPoint("TOPRIGHT", UIParent, "TOPRIGHT", -230, -260)
-  end
-  ui.Layout()
+  ui.Place()
+  ui.Apply()
 end)
 f:Hide()
+o:Hide()
 
 -- ---------------------------------------------------------------- chests on the minimap
 -- The game sends the hero's world position (AZS_RUN px/py) and every Battleground Cache's
@@ -676,7 +801,7 @@ btn:SetScript("OnEvent", PlaceButton)
 -- two small buttons in the panel's settings: chest and lair markers on or off
 local say = "|cffa335eeLuckyOdds|r: "
 local toggles = {}
-ui.toggle = toggles
+ui.toggle = {}   -- the new design's two, for Layout
 
 local function ToggleMarkers(key, what)
   db[key] = not db[key]
@@ -685,29 +810,37 @@ local function ToggleMarkers(key, what)
   for i = 1, table.getn(toggles) do toggles[i].Style() end
 end
 
-local function NewToggle(key, what, iconPath)
-  local b = IconButton(iconPath)
-  local t = b.tex
-  t:SetTexCoord(0, 1, 0, 1)
-  b.Style = function()
-    if not db then return end
-    if db[key] then t:SetVertexColor(1, 1, 1) else t:SetVertexColor(0.35, 0.35, 0.35) end
+-- one button for each design; the old design's sit in its top right corner (fromRight)
+local function NewToggle(key, what, iconPath, fromRight)
+  for n = 1, 2 do
+    local b = IconButton(iconPath, n == 1 and f or o)
+    local t = b.tex
+    t:SetTexCoord(0, 1, 0, 1)
+    b.Style = function()
+      if not db then return end
+      if db[key] then t:SetVertexColor(1, 1, 1) else t:SetVertexColor(0.35, 0.35, 0.35) end
+    end
+    b:SetScript("OnClick", function() if db then ToggleMarkers(key, what) end end)
+    b:SetScript("OnEnter", function()
+      GameTooltip:SetOwner(this, "ANCHOR_LEFT")
+      GameTooltip:AddLine(what .. " on the minimap", 1, 0.82, 0)
+      GameTooltip:AddLine(db and db[key] and "On. Click to hide." or "Off. Click to show.", 1, 1, 1)
+      GameTooltip:Show()
+    end)
+    b:SetScript("OnLeave", function() GameTooltip:Hide() end)
+    -- registered after the driver, so db is set by the time this runs
+    b:RegisterEvent("VARIABLES_LOADED")
+    b:SetScript("OnEvent", b.Style)
+    table.insert(toggles, b)
+    if n == 1 then
+      table.insert(ui.toggle, b)
+    else
+      b:SetPoint("TOPRIGHT", o, "TOPRIGHT", fromRight, -8)
+    end
   end
-  b:SetScript("OnClick", function() if db then ToggleMarkers(key, what) end end)
-  b:SetScript("OnEnter", function()
-    GameTooltip:SetOwner(this, "ANCHOR_LEFT")
-    GameTooltip:AddLine(what .. " on the minimap", 1, 0.82, 0)
-    GameTooltip:AddLine(db and db[key] and "On. Click to hide." or "Off. Click to show.", 1, 1, 1)
-    GameTooltip:Show()
-  end)
-  b:SetScript("OnLeave", function() GameTooltip:Hide() end)
-  -- registered after the driver, so db is set by the time this runs
-  b:RegisterEvent("VARIABLES_LOADED")
-  b:SetScript("OnEvent", b.Style)
-  table.insert(toggles, b)
 end
-NewToggle("chests", "chests", "Interface\\AddOns\\LuckyOdds\\chest")
-NewToggle("lairs", "guardian lairs", "Interface\\AddOns\\LuckyOdds\\skull")
+NewToggle("chests", "chests", "Interface\\AddOns\\LuckyOdds\\chest", -34)
+NewToggle("lairs", "guardian lairs", "Interface\\AddOns\\LuckyOdds\\skull", -10)
 
 -- ---------------------------------------------------------------- /lucky
 SLASH_LUCKYODDS1 = "/lucky"
